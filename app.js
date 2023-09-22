@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const Business = require('./models/business');
 const Review = require('./models/review');
 
-const url = 'mongodb+srv://yelpclone1:yelpclone1@cluster0.tnyqubr.mongodb.net/yelpclone1?retryWrites=true&w=majority'
+const url = 'mongodb+srv://kongdong99:pitalee@cluster0.zgtf2yt.mongodb.net/yelpclone?retryWrites=true&w=majority'
 
 mongoose.connect(url, {
     useNewUrlParser: true,

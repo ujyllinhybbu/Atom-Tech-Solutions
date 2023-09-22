@@ -3,12 +3,13 @@ const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Business = require('../models/business');
 
-const url = 'mongodb+srv://yelpclone1:yelpclone1@cluster0.tnyqubr.mongodb.net/yelpclone1?retryWrites=true&w=majority'
+const url = 'mongodb+srv://kongdong99:pitalee@cluster0.zgtf2yt.mongodb.net/yelpclone?retryWrites=true&w=majority'
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
 
 const db = mongoose.connection;
 
