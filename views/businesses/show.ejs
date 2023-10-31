@@ -10,5 +10,37 @@
     <h1><%= business.title %></h1>
     <h1><%= business.description %></h1>
     <h1><%= business.location %></h1>
+
+    <div>
+        <form action="/business/<%= business.id %>/update" method="GET">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </form>
+        <form action="/business" method="GET">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Back</button>
+            </div>
+        </form>
+        <form action="/business/<%= business.id %>?_method=DELETE" method="POST">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Delete</button>
+            </div>
+        </form>
+        <form action="/business/<%=business._id%>/reviews" method="POST">
+            <div class="mb-3">
+                <label for="rating">Rating</label>
+                <input type="range" id="rating" name="rating" min="1" max="5">
+            </div>
+            <div class="mb-3">
+                <label for="review">Review</label>
+                <textarea id="review" name="review" cols="30" rows="3"></textarea>
+              </div>
+        </form>
+        <div class="mb-3">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+    
 </body>
 </html>
