@@ -7,6 +7,7 @@ const Review = require('./models/review');
 
 const url = 'mongodb+srv://kongdong99:pitalee@cluster0.zgtf2yt.mongodb.net/yelpclone?retryWrites=true&w=majority'
 
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -19,7 +20,6 @@ db.once("open", () => {
 });
 
 const app = express();
-
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
@@ -37,7 +37,43 @@ app.get('/business', async(req, res) => {
     const business = await Business.find({});
     console.log(business);
     res.render('businesses/index', { business });
+}) 
+
+app.get('/business/new', (req, res) => {
+    res.render('businesses/new')
 })
+
+app.get('/business/:id', async(req, res) => {
+    const business = await Business.findById(req.params.id);
+    console.log(business)
+    res.render('businesses/show', { business });
+})
+
+app.get('/business/:id/update', async(req, res) => {
+    const business = await Business.findById(req.params.id);
+    console.log(business)
+    res.render('businesses/update', { business })
+})
+
+app.put('/business/:id', async (req, res) => {
+    const updatedData = req.body.business;
+    const updatedBusiness = await Business.findByIdAndUpdate(req.params.id, updatedData, { new: true});
+    console.log(updatedBusiness);
+    res.redirect(`/business/${req.params.id}`);
+});
+
+app.post('/business', (req, res) => {
+    const newBusiness = new Business( req.body.business );
+    newBusiness.save();
+    console.log(newBusiness);
+    res.redirect(`/business/${newBusiness.id}`);
+});
+
+app.delete('/business/:id', async (req, res) => {
+    const deletedBusiness = await Business.findByIdAndDelete(req.params.id);
+    console.log(deletedBusiness);
+    res.redirect(`/business`);
+});
 
 
 app.listen(3000, () => {
