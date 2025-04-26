@@ -51,7 +51,6 @@ cd atom-tech-solutions
 npm install
 
 # 4. Setup MongoDB
-# Ensure MongoDB is running locally or configure environment variables for a remote database.
 
 # 5. Start the server
 npm start
