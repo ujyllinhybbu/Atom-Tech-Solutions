@@ -40,19 +40,25 @@ Integrating MongoDB using Mongoose schemas and models.
 
 # How to Run the Project Locally
 1. Clone the repository
+   
 git clone https://github.com/your-username/atom-tech-solutions.git
 
 2. Navigate to the project directory
+   
 cd atom-tech-solutions
 
 3. Install backend dependencies
+   
 npm install
 
 4. Setup MongoDB
+   
 Ensure MongoDB is running locally or configure environment variables for a remote database.
 
 5. Start the server
+   
 npm start
 
 6. Open your browser
+   
 Visit http://localhost:3000
