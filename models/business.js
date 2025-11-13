@@ -8,9 +8,13 @@ const BusinessSchema = new Schema ({
     reviews : [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Review'
+            ref: "Review"
         }
-    ]
+    ],
+    averageRating: {
+        type: Number,
+        default: 0
+    }
 });
 
 module.exports = mongoose.model('Business', BusinessSchema);
